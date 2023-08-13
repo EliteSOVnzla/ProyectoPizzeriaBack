@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title":"cliente",
+    "description":"Este documento contiene la informacion de un cliente",
+    "properties": {
+      "_id":{
+        "type":"integer",
+        "description": "identificador unico de un cliente de la pizzeria \neste atributo es generado automaticamente por MongoDB, omitir en la creacion."
+      },
+      "nombre": {
+        "type": "string"
+      },
+      "ci": {
+        "type": "integer",
+        "minimum":1,
+        "description":"numero de cedula o DNI del cliente"
+      },
+      "tlf": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "_id",
+      "nombre",
+      "ci",
+      "tlf"
+    ]
+}
+

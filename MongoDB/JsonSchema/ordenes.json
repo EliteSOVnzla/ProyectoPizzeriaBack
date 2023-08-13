@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title":"orden",
+    "description":"Datos de una orden realizada por un cliente",
+    "properties": {
+      "_id": {
+        "type": "integer",
+        "description": "identificador unico de la orden \neste atributo es generado automaticamente por MongoDB, omitir en la creacion."
+      },
+      "_idCliente":{
+        "type":"integer",
+        "description": "referencia al id del cliente que hizo la orden"
+      },
+      "precio":{
+        "type":"integer",
+        "minimum":1
+      },
+      "direccion": {
+        "type": "string"
+      },
+      "puntosDeReferencia": {
+        "type": "array",
+        "description":"Arreglos de referencias padas por el cliente",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "ref": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "ref"
+            ]
+          }
+        ]
+      }
+    },
+    "required": ["_id","_idCliente","precio","direccion"],
+    "examples":[
+      {
+        "id":0,
+        "_idCliente":0,
+        "direccion":"Caracas, La candelaria.",
+        "puntosDeReferencia":[{"ref":""}]
+      }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "_id": {
+        "type": "integer",
+        "description": "identificador unico de una platillo preparado \neste atributo es generado automaticamente por MongoDB, omitir en la creacion."
+      },
+      "_idOrden":{
+        "type":"integer",
+        "description": "identidicador de la orden a la que pertenece el platillo"
+      },
+      "nombre": {
+        "type": "string"
+      },
+      "descripcion": {
+        "type": "string"
+      },
+      "precio": {
+        "type": "integer",
+        "minimum":1
+      },
+      "items": {
+        "type": "array",
+        "description": "Un arreglos donde cada casilla representa el ingrediente añadido",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "nombre": {
+                "type": "string"
+              },
+              "cantidad": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "nombre",
+              "cantidad"
+            ]
+          }
+        ]
+      }
+    },
+    "required": ["_id","_idOrden","nombre","precio"],
+    "examples":[
+        {
+            "id":0,
+            "nombre":"",
+            "descripcion":"",
+            "precio":0,
+            "items":[{"nombre":"","cantidad":0}]
+        }
+    ]
+}
+
+
+
